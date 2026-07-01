@@ -1,0 +1,980 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   My Portfolio
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+  <style>
+   /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #0f0f1a 40%, #0d1b2a 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    a {
+      color: #a78bfa;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #c4b5fd;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    /* Header */
+    header {
+      background-color: rgba(10, 10, 15, 0.92);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #4f46e5;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li a {
+      font-weight: 600;
+      color: #ffffff;
+    }
+    nav ul li a:hover {
+      color: #a78bfa;
+    }
+    /* Mobile menu button */
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #d1d5db;
+      cursor: pointer;
+    }
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      background-color: rgba(10, 10, 15, 0.97);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      position: absolute;
+      top: 60px;
+      width: 100%;
+      left: 0;
+      padding: 1rem 0;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+    .mobile-menu ul li a {
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+    .mobile-menu ul li a:hover {
+      color: #a78bfa;
+    }
+    /* Sections */
+    section {
+      padding: 6rem 0 4rem 0;
+    }
+    /* Home Section */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    #home img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    #home h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #a78bfa;
+      margin-bottom: 1rem;
+    }
+    #home p {
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      color: #9ca3af;
+    }
+    #home a.button {
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+    }
+    #home a.button:hover {
+      background: linear-gradient(135deg, #6d28d9, #4338ca);
+      box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+    }
+    #home .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    #home a.button-outline {
+      background: transparent;
+      color: #a78bfa;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid #7c3aed;
+      box-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
+    }
+    #home a.button-outline:hover {
+      background: rgba(124, 58, 237, 0.1);
+      color: #c4b5fd;
+      box-shadow: 0 0 25px rgba(124, 58, 237, 0.4);
+    }
+    /* About Section */
+    #about .about-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #about img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+    #about .about-text {
+      flex: 1;
+      min-width: 280px;
+    }
+    #about h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #a78bfa;
+      margin-bottom: 1rem;
+    }
+    #about p {
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+    /* Projects Section */
+    #projects h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #a78bfa;
+      margin-bottom: 3rem;
+    }
+    #projects .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 640px) {
+      #projects .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      #projects .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    #projects article {
+      background-color: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.4);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    #projects article:hover {
+      box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2);
+      border-color: #7c3aed;
+    }
+    #projects article img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    #projects article .content {
+      padding: 1rem 1.5rem 1.5rem 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #projects article h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #f3f4f6;
+    }
+    #projects article p {
+      flex-grow: 1;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+    #projects article a {
+      font-weight: 700;
+      color: #a78bfa;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    #projects article a:hover {
+      text-decoration: underline;
+      color: #c4b5fd;
+    }
+    /* Skills Section */
+    #skills h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #a78bfa;
+      margin-bottom: 3rem;
+    }
+    #skills .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    @media (min-width: 640px) {
+      #skills .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    #skills .skill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: #d1d5db;
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 0.75rem;
+      padding: 1.25rem 0.5rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    #skills .skill:hover {
+      border-color: #7c3aed;
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+    }
+    #skills .skill i {
+      font-size: 3rem;
+      color: inherit;
+    }
+    #skills .skill.html5 i {
+      color: #f97316;
+    }
+    #skills .skill.css3 i {
+      color: #2563eb;
+    }
+    #skills .skill.typescript i {
+      color: #3178c6;
+    }
+    #skills .skill.react i {
+      color: #d40606;
+    }
+    #skills .skill.npm i {
+      color: #cb3837;
+    }
+    #skills .skill.bootstrap i {
+      color: #7952b3;
+    }
+    #skills .skill.scss i {
+      color: #cc6699;
+    }
+    #skills .skill.figma i {
+      color: #f24e1e;
+    }
+    #skills .skill.angular-material i {
+      color: #e91e63;
+    }
+    #skills .skill.vue i {
+      color: #22c55e;
+    }
+    #skills .skill.tailwind i {
+      color: #4f46e5;
+    }
+    #skills .skill.node i {
+      color: #15803d;
+    }
+    #skills .skill.git i {
+      color: #dc2626;
+    }
+    #skills .skill h3 {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+    /* Experience Section */
+    #experience h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #a78bfa;
+      margin-bottom: 3rem;
+    }
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding-left: 2.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #7c3aed, #4f46e5, transparent);
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -2.15rem;
+      top: 0.35rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #7c3aed;
+      border: 3px solid #0a0a0a;
+      box-shadow: 0 0 12px rgba(124, 58, 237, 0.7);
+    }
+    .timeline-content {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 0.5rem;
+      padding: 1.25rem 1.5rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .timeline-content:hover {
+      border-color: #7c3aed;
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+    }
+    .timeline-date {
+      font-size: 0.8rem;
+      color: #a78bfa;
+      font-weight: 700;
+      display: inline-block;
+      background: rgba(124, 58, 237, 0.15);
+      padding: 0.15rem 0.6rem;
+      border-radius: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-content h3 {
+      color: #f3f4f6;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 0.15rem 0;
+    }
+    .timeline-content h4 {
+      color: #6b7280;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin: 0 0 0.75rem 0;
+    }
+    .timeline-content p {
+      color: #9ca3af;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    /* Contact Section */
+    #contact h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #a78bfa;
+      margin-bottom: 3rem;
+    }
+    #contact form {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #111827;
+      border: 1px solid #1f2937;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    #contact label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #d1d5db;
+    }
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #374151;
+      border-radius: 0.375rem;
+      font-size: 1rem;
+      font-family: inherit;
+      margin-bottom: 1.5rem;
+      background-color: #0f172a;
+      color: #e5e7eb;
+      transition: border-color 0.3s ease;
+    }
+    #contact input:focus,
+    #contact textarea:focus {
+      outline: none;
+      border-color: #7c3aed;
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
+    }
+    #contact button {
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 0.375rem;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+    }
+    #contact button:hover {
+      background: linear-gradient(135deg, #6d28d9, #4338ca);
+      box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
+    }
+    /* Footer */
+    footer {
+      background-color: rgba(10, 10, 15, 0.95);
+      border-top: 1px solid #1f2937;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+    }
+    footer .footer-inner {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+    @media (min-width: 640px) {
+      footer .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    footer .social-links a {
+      color: #6b7280;
+      margin-left: 1rem;
+      font-size: 1.25rem;
+      transition: color 0.3s ease;
+    }
+    footer .social-links a:first-child {
+      margin-left: 0;
+    }
+    footer .social-links a:hover {
+      color: #a78bfa;
+    }
+    /* Responsive Nav */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      .menu-btn {
+        display: block;
+      }
+    }
+  </style>
+ </head>
+ <body>
+  <header>
+   <div class="container header-inner">
+    <a class="logo" href="#home">
+     Dinesh.M
+    </a>
+    <nav>
+     <button aria-label="Toggle menu" class="menu-btn" id="menu-btn">
+      <i class="fas fa-bars">
+      </i>
+     </button>
+     <div class="mobile-menu" id="mobile-menu">
+      <ul>
+       <li>
+        <a href="#home">
+         Home
+        </a>
+       </li>
+       <li>
+        <a href="#about">
+         About
+        </a>
+       </li>
+       <li>
+        <a href="#experience">
+         Experience
+        </a>
+       </li>
+       <li>
+        <a href="#projects">
+         Projects
+        </a>
+       </li>
+       <li>
+        <a href="#skills">
+         Skills
+        </a>
+       </li>
+       <li>
+        <a href="#contact">
+         Contact
+        </a>
+       </li>
+      </ul>
+     </div>
+     <ul>
+      <li>
+       <a href="#home">
+        Home
+       </a>
+      </li>
+      <li>
+       <a href="#about">
+        About
+       </a>
+      </li>
+      <li>
+       <a href="#experience">
+        Experience
+       </a>
+      </li>
+      <li>
+       <a href="#projects">
+        Projects
+       </a>
+      </li>
+      <li>
+       <a href="#skills">
+        Skills
+       </a>
+      </li>
+      <li>
+       <a href="#contact">
+        Contact
+       </a>
+      </li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+  <main>
+   <!-- Home Section -->
+   <section id="home">
+    <img alt="Dinesh M - Frontend Angular Developer" height="150" src="https://raw.githubusercontent.com/DiaDani0811/Portfolio/main/DSC_0200%20copy.jpg" width="150" style="object-position: center top;"/>
+    <h1>
+     Hi, I'm Dinesh M
+    </h1>
+    <p>
+     Frontend Angular Developer with 4+ years of experience building scalable, user-centric applications. Specialized in Angular, Spring Boot, and modern web technologies.
+    </p>
+    <div class="btn-group">
+     <a class="button" href="#projects">
+      View My Work
+     </a>
+     <a class="button-outline" href="https://raw.githubusercontent.com/DiaDani0811/Portfolio/main/DINESH M - Resume (1).pdf" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-download" style="margin-right:0.4rem;"></i>Download CV
+     </a>
+    </div>
+   </section>
+   <!-- About Section -->
+   <section id="about">
+    <div class="about-inner">
+     <img alt="Dinesh M - Angular Developer" height="300" src="https://raw.githubusercontent.com/DiaDani0811/Portfolio/main/DSC_0200%20copy.jpg" width="300" style="object-position: center top;"/>
+     <div class="about-text">
+      <h2>
+       About Me
+      </h2>
+      <p>
+       I'm a Frontend Angular Developer with 4+ years of professional experience specializing in building scalable, production-grade applications. I have a strong foundation in the Angular ecosystem, Spring Boot, and modern web technologies. My expertise spans from micro-frontend architecture to healthcare and education technology solutions.
+      </p>
+      <p>
+       I'm passionate about writing clean, efficient code and continuously learning new technologies. I have hands-on experience with HTML5, CSS3, TypeScript, and have worked on complex projects involving real-time communications, GPS tracking, and healthcare compliance standards.
+      </p>
+      <p>
+       In today's fast-paced industry, I actively leverage AI-powered tools and workflows to work smarter and deliver faster. By integrating AI into my development process — from code assistance and debugging to automated testing and documentation — I ensure consistent quality while meeting tight deadlines and project deliverables. I believe that combining strong technical fundamentals with modern AI capabilities is key to staying competitive and building future-ready solutions.
+      </p>
+     </div>
+    </div>
+   </section>
+   <!-- Experience Section -->
+   <section id="experience">
+    <h2>
+     Experience
+    </h2>
+    <div class="timeline">
+     <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+       <span class="timeline-date">2026-Jan &ndash; Present</span>
+       <h3>Senior Angular Developer</h3>
+       <h4>CONPRG Technologies &middot; Full-time</h4>
+       <p>Leading the migration and modernization of a legacy PowerBuilder application (i.pharmacy) to a modern Angular + Spring Boot web platform. Responsible for re-architecting frontend modules, implementing REST API integrations, and delivering scalable, maintainable code.</p>
+      </div>
+     </div>
+     <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+       <span class="timeline-date">2024-July &ndash; 2025-Dec</span>
+       <h3>Software Engineer G2 </h3>
+       <h4>NeverSkip &middot; Full-time</h4>
+       <p>Built a school digitization platform using Angular and Core PHP with micro-frontend architecture. Delivered dynamic academic configuration, automated ID card generation, multi-channel communication (WhatsApp, Email, SMS), and real-time GPS tracking for school transport.</p>
+      </div>
+     </div>
+     <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+       <span class="timeline-date">2022-July &ndash; 2024-June</span>
+       <h3>Trainee Angular Developer</h3>
+       <h4>RecoveryCoach &middot; Full-time</h4>
+       <p>Developed a comprehensive healthcare platform using Angular and Spring Boot REST APIs. Implemented patient registration, appointment scheduling, dynamic form handling, billing and insurance modules, and doctor/staff management with healthcare compliance standards.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Projects Section -->
+   <section id="projects">
+    <h2>
+     Projects
+    </h2>
+    <div class="projects-grid">
+     <article>
+      <img alt="NeverSkip - School Management Application" height="400" src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=400&fit=crop" width="600"/>
+      <div class="content">
+       <h3>
+        NeverSkip - School Management System
+       </h3>
+       <p>
+        Built a comprehensive school digitization platform using Angular and Core PHP. Features include dynamic academic configuration, customizable admission forms, automated ID card generation, multi-channel communication (WhatsApp, Email, SMS), real-time GPS tracking for school transport, and attendance/exam management.
+       </p>
+       <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.5rem;">
+        <strong>Tech Stack:</strong> Angular, Micro-frontend Architecture (MFE), Core PHP, REST APIs
+       </p>
+       <a href="https://app.neverskip.com/appnew/login.php" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-external-link-alt">
+        </i>
+        View Project
+       </a>
+      </div>
+     </article>
+     <article>
+      <img alt="RecoveryCoach - Hospital Management Application" height="400" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop" width="600"/>
+      <div class="content">
+       <h3>
+        RecoveryCoach - Hospital Management System
+       </h3>
+       <p>
+        Developed a healthcare platform using Angular frontend with Spring Boot REST APIs. Implemented patient registration, appointment scheduling, dynamic forms for patient records, integrated billing and insurance support, doctor/staff management with rosters, and healthcare compliance standards.
+       </p>
+       <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.5rem;">
+        <strong>Tech Stack:</strong> Angular, Spring Boot, REST APIs, Healthcare Compliance
+       </p>
+       <a href="https://www.myrecoverycoach.com/rc-ui/#/login" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-external-link-alt">
+        </i>
+        View Project
+       </a>
+      </div>
+     </article>
+     <article>
+      <img alt="i.pharmacy - PowerBuilder Migration to Web Application" height="400" src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&h=400&fit=crop" width="600"/>
+      <div class="content">
+       <h3>
+        i.pharmacy - PowerBuilder Modernization
+       </h3>
+       <p>
+        Working on the migration and modernization of a legacy PowerBuilder application to a modern web application. The project involves re-architecting and rebuilding the entire system using Angular and Spring Boot, preserving existing business logic while delivering a scalable, browser-based solution.
+       </p>
+       <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.5rem;">
+        <strong>Tech Stack:</strong> Angular, Spring Boot, REST APIs, PowerBuilder Migration
+       </p>
+       <p style="font-size: 0.85rem; color: #f59e0b; font-weight: 600; margin: 0;">
+        <i class="fas fa-tools" style="margin-right: 0.4rem;"></i>Under Development
+       </p>
+      </div>
+     </article>
+
+    </div>
+   </section>
+   <!-- Skills Section -->
+   <section id="skills">
+    <h2>
+     Skills
+    </h2>
+    <div class="skills-grid">
+     <div class="skill html5">
+      <i aria-hidden="true" class="fab fa-html5">
+      </i>
+      <h3>
+       HTML5
+      </h3>
+     </div>
+     <div class="skill css3">
+      <i aria-hidden="true" class="fab fa-css3-alt">
+      </i>
+      <h3>
+       CSS3
+      </h3>
+     </div>
+     <div class="skill typescript">
+      <i aria-hidden="true" class="devicon-typescript-plain">&#xe840;</i>
+      <h3>
+       TypeScript
+      </h3>
+     </div>
+     <div class="skill react">
+      <i aria-hidden="true" class="fab fa-angular">
+      </i>
+      <h3>
+       Angular
+      </h3>
+     </div>
+     <div class="skill vue">
+      <img src="data:image/png;base64,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" alt="spring-logo">
+      <h3>
+       Spring Boot
+      </h3>
+     </div>
+     <div class="skill tailwind">
+      <i aria-hidden="true" class="fas fa-code">
+      </i>
+      <h3>
+       Responsive Design
+      </h3>
+     </div>
+     <div class="skill node">
+      <i aria-hidden="true" class="fab fa-node-js">
+      </i>
+      <h3>
+       REST APIs
+      </h3>
+     </div>
+     <div class="skill git">
+      <i aria-hidden="true" class="fab fa-git-alt">
+      </i>
+      <h3>
+       Git/GitLab
+      </h3>
+     </div>
+     <div class="skill npm">
+      <i aria-hidden="true" class="fab fa-npm">
+      </i>
+      <h3>
+       NPM
+      </h3>
+     </div>
+     <div class="skill bootstrap">
+      <i aria-hidden="true" class="fab fa-bootstrap">
+      </i>
+      <h3>
+       Bootstrap
+      </h3>
+     </div>
+     <div class="skill scss">
+      <i aria-hidden="true" class="fab fa-sass">
+      </i>
+      <h3>
+       SCSS / Sass
+      </h3>
+     </div>
+     <div class="skill angular-material">
+      <i aria-hidden="true" class="fas fa-layer-group">
+      </i>
+      <h3>
+       Angular Material
+      </h3>
+     </div>
+    </div>
+   </section>
+   <!-- Contact Section -->
+   <section id="contact">
+    <h2>
+     Contact Me
+    </h2>
+    <form id="contact-form" action="https://formspree.io/f/mjgqeoya" method="POST">
+     <label for="name">
+      Name
+     </label>
+     <input id="name" name="name" placeholder="Your full name" required="" type="text"/>
+     <label for="email">
+      Email
+     </label>
+     <input id="email" name="email" placeholder="Your email address" required="" type="email"/>
+     <label for="message">
+      Message
+     </label>
+     <textarea id="message" name="message" placeholder="Write your message here..." required="" rows="5"></textarea>
+     <button type="submit" id="submit-btn">
+      Send Message
+     </button>
+     <p id="form-status" style="margin-top: 1rem; font-weight: 600; display: none;"></p>
+    </form>
+   </section>
+  </main>
+  <footer>
+   <div class="container footer-inner">
+    <p>
+     © 2026 Dinesh M. All rights reserved.
+    </p>
+    <div class="social-links" role="list">
+     <a aria-label="LinkedIn" href="https://www.linkedin.com/in/dinesh-m-56a900235" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-linkedin">
+      </i>
+     </a>
+     <a aria-label="Email" href="mailto:thedinesh0811@gmail.com" rel="noopener noreferrer" target="_blank">
+      <i class="fas fa-envelope">
+      </i>
+     </a>
+     <a aria-label="GitHub" href="https://github.com/DiaDani0811" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-github">
+      </i>
+     </a>
+     <a aria-label="Phone" href="tel:+919094144614" title="+91 90941 44614" rel="noopener noreferrer" target="_blank">
+      <i class="fas fa-phone">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+   const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      if (mobileMenu.style.display === 'flex') {
+        mobileMenu.style.display = 'none';
+      } else {
+        mobileMenu.style.display = 'flex';
+      }
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.style.display = 'none';
+      });
+    });
+
+    // Contact form submission via Formspree
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const data = new FormData(contactForm);
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
+          formStatus.style.color = '#16a34a';
+          formStatus.style.display = 'block';
+          contactForm.reset();
+        } else {
+          formStatus.textContent = 'Oops! Something went wrong. Please try again.';
+          formStatus.style.color = '#dc2626';
+          formStatus.style.display = 'block';
+        }
+      } catch (error) {
+        formStatus.textContent = 'Network error. Please check your connection and try again.';
+        formStatus.style.color = '#dc2626';
+        formStatus.style.display = 'block';
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    });
+  </script>
+ </body>
+</html>
